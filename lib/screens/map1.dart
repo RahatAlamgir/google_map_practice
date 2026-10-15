@@ -10,20 +10,52 @@ class Map1Screen extends StatefulWidget {
 }
 
 class _Map1ScreenState extends State<Map1Screen> {
+  String markName = "";
+  String latlan = "";
+  Set<Marker> _markers() {
+    return {
+      for (final Landmark place in Places.all)
+        Marker(
+          markerId: MarkerId(place.id),
+          position: place.position,
+          onTap: () {
+            setState(() {
+              markName = place.name;
+            });
+          },
+          infoWindow: InfoWindow(
+            title: place.name,
+            snippet: place.fact,
+            onTap: () {
+              setState(() {
+                latlan = place.position.toString();
+              });
+            },
+          ),
+        ),
+    };
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text("Map1")),
       body: Center(
-        child: GoogleMap(
-          initialCameraPosition: Places.openingCamera,
-          zoomControlsEnabled: false,
-          markers: {
-            Marker(
-              markerId: MarkerId("test marker"),
-              position: Places.all.first.position,
+        child: Column(
+          children: [
+            Text(markName),
+            Text(latlan),
+            Expanded(
+              child: GoogleMap(
+                initialCameraPosition: Places.openingCamera,
+
+                zoomGesturesEnabled: false,
+
+                markers: _markers(),
+              ),
             ),
-          },
+            SizedBox(height: 100),
+          ],
         ),
       ),
     );

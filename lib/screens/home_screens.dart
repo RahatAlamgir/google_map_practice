@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_map_practice/screens/map1.dart';
+import 'package:google_map_practice/screens/map2.dart';
 
 class HomeScreens extends StatelessWidget {
   const HomeScreens({super.key});
@@ -19,6 +20,15 @@ class HomeScreens extends StatelessWidget {
                 );
               },
               child: Text("Map 1"),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => MapGestureScreen()),
+                );
+              },
+              child: Text("Map 2"),
             ),
           ],
         ),
