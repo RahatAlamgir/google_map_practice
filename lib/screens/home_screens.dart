@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:google_map_practice/screens/gps_screen.dart';
 import 'package:google_map_practice/screens/map1.dart';
-import 'package:google_map_practice/screens/map2.dart';
+import 'package:google_map_practice/screens/map_gesture_screen.dart';
+import 'package:google_map_practice/screens/permission_screen.dart';
 
 class HomeScreens extends StatelessWidget {
   const HomeScreens({super.key});
@@ -28,7 +30,25 @@ class HomeScreens extends StatelessWidget {
                   MaterialPageRoute(builder: (context) => MapGestureScreen()),
                 );
               },
-              child: Text("Map 2"),
+              child: Text("Map Gesture"),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => GpsScreen()),
+                );
+              },
+              child: Text("Map GPS"),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => PermissionScreen()),
+                );
+              },
+              child: Text("Permissions"),
             ),
           ],
         ),

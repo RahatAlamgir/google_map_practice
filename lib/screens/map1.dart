@@ -49,6 +49,9 @@ class _Map1ScreenState extends State<Map1Screen> {
               child: GoogleMap(
                 initialCameraPosition: Places.openingCamera,
 
+                myLocationEnabled: true,
+                //myLocationButtonEnabled: true,
+
                 zoomGesturesEnabled: false,
 
                 markers: _markers(),
