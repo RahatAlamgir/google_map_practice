@@ -3,6 +3,7 @@ import 'package:google_map_practice/screens/gps_screen.dart';
 import 'package:google_map_practice/screens/map1.dart';
 import 'package:google_map_practice/screens/map_gesture_screen.dart';
 import 'package:google_map_practice/screens/permission_screen.dart';
+import 'package:google_map_practice/screens/polyline.dart';
 
 class HomeScreens extends StatelessWidget {
   const HomeScreens({super.key});
@@ -49,6 +50,15 @@ class HomeScreens extends StatelessWidget {
                 );
               },
               child: Text("Permissions"),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => PolylinesScreen()),
+                );
+              },
+              child: Text("Polyline"),
             ),
           ],
         ),
