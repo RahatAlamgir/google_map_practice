@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_map_practice/screens/custom_marker.dart';
 import 'package:google_map_practice/screens/gps_screen.dart';
 import 'package:google_map_practice/screens/map1.dart';
 import 'package:google_map_practice/screens/map_gesture_screen.dart';
@@ -59,6 +60,15 @@ class HomeScreens extends StatelessWidget {
                 );
               },
               child: Text("Polyline"),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => CustomMarker()),
+                );
+              },
+              child: Text("Custom Marker"),
             ),
           ],
         ),
